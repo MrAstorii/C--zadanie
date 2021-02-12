@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://blackboard.jpg" type="Texture" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://Feltpen.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.1189
+margin_right = 2.1189
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tekstGlowny" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 0, 400 )
+custom_fonts/font = SubResource( 1 )
+text = "Łololololo"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="odp_liczb" type="SpinBox" parent="VBoxContainer"]
+margin_top = 404.0
+margin_right = 1024.0
+margin_bottom = 428.0
+
+[node name="prob_liczb" type="SpinBox" parent="VBoxContainer"]
+margin_top = 432.0
+margin_right = 1024.0
+margin_bottom = 456.0
+min_value = 1.0
+value = 1.0
+
+[node name="odp" type="Label" parent="."]
+anchor_left = 0.434
+anchor_top = 0.618
+anchor_right = 0.578
+anchor_bottom = 0.67
+margin_left = -0.416016
+margin_top = 0.199982
+margin_right = 0.127991
+custom_fonts/font = SubResource( 2 )
+text = "Twoja odpowiedz"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="prob" type="Label" parent="."]
+anchor_left = 0.464
+anchor_top = 0.776
+anchor_right = 0.558
+anchor_bottom = 0.843
+margin_left = 0.291107
+margin_top = 0.281097
+margin_right = 0.0350952
+margin_bottom = 0.0810852
+custom_fonts/font = SubResource( 3 )
+text = "Ilosc prob"
+
+[node name="wynik_liczb" type="SpinBox" parent="."]
+visible = false
+anchor_left = 0.241
+anchor_top = 1.02
+anchor_right = 0.313
+anchor_bottom = 1.06
+margin_left = 0.215988
+margin_top = -6.10352e-05
+margin_right = 0.487976
+margin_bottom = -6.10352e-05
+min_value = 1.0
+value = 1.0
+exp_edit = true
+editable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="VBoxContainer/odp_liczb" to="." method="_on_odp_liczb_value_changed"]
